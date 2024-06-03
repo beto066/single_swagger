@@ -1,0 +1,105 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "API Documentation",
+        "version": "1.0.0"
+    },
+    "tags": [
+        {
+            "name": "swagger",
+            "description": ""
+        }
+    ],
+    "paths": {
+        "\/swagger-routes": {
+            "get": {
+                "summary": "",
+                "description": "",
+                "operationId": "apiSwaggerRoutes",
+                "consumes": "application\/json",
+                "produces": "application\/json",
+                "parameters": [
+                    {
+                        "name": "route_directory",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "type": "string",
+                        "default": "string"
+                    },
+                    {
+                        "name": "inRule",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "type": "string",
+                        "default": "string"
+                    }
+                ],
+                "tags": [
+                    "swagger"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response"
+                    }
+                }
+            }
+        },
+        "\/swagger-json\/{fileName}": {
+            "get": {
+                "summary": "",
+                "description": "",
+                "operationId": "apiSwaggerApi-documentation",
+                "consumes": "application\/json",
+                "produces": "application\/json",
+                "parameters": [
+                    {
+                        "name": "prefix",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "type": "string",
+                        "default": "string"
+                    },
+                    {
+                        "name": "tenant",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "type": "string",
+                        "default": "string"
+                    },
+                    {
+                        "name": "fileName",
+                        "in": "path",
+                        "description": "",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "tags": [
+                    "swagger"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response"
+                    }
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "Bearer": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header",
+            "description": "Enter your bearer token in the format **Bearer &lt;token&gt;**"
+        }
+    },
+    "security": [
+        {
+            "Bearer": []
+        }
+    ]
+}

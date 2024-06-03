@@ -1,0 +1,62 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "API Documentation",
+        "version": "1.0.0"
+    },
+    "tags": [
+        {
+            "name": "wolrd",
+            "description": ""
+        }
+    ],
+    "paths": {
+        "\/\/\/": {
+            "post": {
+                "summary": "",
+                "description": "",
+                "operationId": "helloWolrdAqui",
+                "consumes": "application\/json",
+                "produces": "application\/json",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": false,
+                        "type": "object",
+                        "properties": {
+                            "hello": {
+                                "required": true,
+                                "type": "string",
+                                "default": "2011-10-05T14:48:00.000Z",
+                                "format": "date-time"
+                            }
+                        }
+                    }
+                ],
+                "tags": [
+                    "wolrd"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response"
+                    }
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "Bearer": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header",
+            "description": "Enter your bearer token in the format **Bearer &lt;token&gt;**"
+        }
+    },
+    "security": [
+        {
+            "Bearer": []
+        }
+    ]
+}
