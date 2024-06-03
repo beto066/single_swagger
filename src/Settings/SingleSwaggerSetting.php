@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Settings;
+namespace SingleSoftware\SinglesSwagger\Settings;
 
 use Spatie\LaravelSettings\Settings;
 

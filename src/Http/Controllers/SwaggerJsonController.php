@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace SingleSoftware\SinglesSwagger\Http\Controllers;
 
-use App\Http\Requests\SwaggerJsonRequest;
-use App\Services\GenerateSwaggerService;
-use App\Settings\SingleSwaggerSetting;
 use Illuminate\Http\JsonResponse;
+use SingleSoftware\SinglesSwagger\Http\Requests\SwaggerJsonRequest;
+use SingleSoftware\SinglesSwagger\Services\GenerateSwaggerService;
+use SingleSoftware\SinglesSwagger\Settings\SingleSwaggerSetting;
 
 class SwaggerJsonController extends Controller
 {

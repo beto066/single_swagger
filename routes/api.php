@@ -1,9 +1,8 @@
 <?php
 
-use App\Http\Controllers\GetRoutesController;
-use App\Http\Controllers\SwaggerJsonController;
-use App\Http\Requests\GetRoutesRequest;
 use Illuminate\Support\Facades\Route;
+use SingleSoftware\SinglesSwagger\Http\Controllers\GetRoutesController;
+use SingleSoftware\SinglesSwagger\Http\Controllers\SwaggerJsonController;
 
 Route::get('/swagger-routes', GetRoutesController::class)->name('api.swagger.routes');
 

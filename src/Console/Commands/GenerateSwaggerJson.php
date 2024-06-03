@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Console\Commands;
+namespace SingleSoftware\SinglesSwagger\Console\Commands;
 
-use App\Services\GenerateSwaggerService;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
+use SingleSoftware\SinglesSwagger\Services\GenerateSwaggerService;
 
 class GenerateSwaggerJson extends Command
 {

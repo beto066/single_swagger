@@ -7933,19 +7933,6 @@
                 }
             }
         },
-        "\/api\/v1\/reports\/daily-reports\/{type}\/files": {
-            "get": {
-                "summary": "",
-                "description": "",
-                "operationId": "",
-                "parameters": [],
-                "responses": {
-                    "200": {
-                        "description": "Successful response"
-                    }
-                }
-            }
-        },
         "\/api\/v1\/reports\/operation-summary\/access\/query": {
             "get": {
                 "summary": "",

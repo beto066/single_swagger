@@ -26,14 +26,6 @@
                         "required": false,
                         "type": "string",
                         "default": "string"
-                    },
-                    {
-                        "name": "inRule",
-                        "in": "query",
-                        "description": "",
-                        "required": false,
-                        "type": "string",
-                        "default": "string"
                     }
                 ],
                 "tags": [

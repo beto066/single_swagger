@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Services;
+namespace SingleSoftware\SinglesSwagger\Services;
 
-use App\Settings\SingleSwaggerSetting;
 use Exception;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\DB;
@@ -14,9 +13,10 @@ use RecursiveIteratorIterator;
 use ReflectionFunction;
 use ReflectionMethod;
 
-class GenerateSwaggerService
+class GenerateSwaggerService implements GenerateSwaggerServiceInterface
 {
-    public function getPreConfiguredFile(string $routeFileName) {
+    public function getPreConfiguredFile(string $routeFileName): array
+    {
         $filePath = public_path("api-documentation/routes/$routeFileName");
 
         if (!file_exists($filePath)) {
@@ -34,7 +34,8 @@ class GenerateSwaggerService
         return $dataArray;
     }
 
-    public function getAllFiles($directory = 'routes') {
+    public function getAllFiles($directory = 'routes'): array
+    {
         $files = [];
 
         $iterator = new RecursiveIteratorIterator(

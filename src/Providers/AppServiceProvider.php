@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace SingleSoftware\SinglesSwagger\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use SingleSoftware\SinglesSwagger\Console\Commands\GenerateSwaggerJson;
@@ -24,7 +24,7 @@ class AppServiceProvider extends ServiceProvider
 
         $this->app->bind(GenerateSwaggerServiceInterface::class, GenerateSwaggerService::class);
 
-        $this->app->singleton('GenerateSwaggerServiceInterface', GenerateSwaggerService::class);
+        $this->app->singleton(GenerateSwaggerServiceInterface::class, GenerateSwaggerService::class);
     }
 
     /**

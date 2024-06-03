@@ -1,5 +1,7 @@
 <?php
 
+use SingleSoftware\SinglesSwagger\Providers\AppServiceProvider;
+
 return [
 
     /*
@@ -14,6 +16,14 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
+
+    'providers' => [
+
+        Illuminate\Cache\CacheServiceProvider::class,
+        Illuminate\Filesystem\FilesystemServiceProvider::class,
+
+        AppServiceProvider::class
+    ],
 
     /*
     |--------------------------------------------------------------------------

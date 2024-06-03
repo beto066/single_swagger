@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace SingleSoftware\SinglesSwagger\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class GetRoutesRequest extends FormRequest
+class SwaggerJsonRequest extends FormRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -14,7 +14,8 @@ class GetRoutesRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'route_directory' => 'nullable|string',
+            "prefix" => 'string|nullable',
+            "tenant" => 'string|nullable',
         ];
     }
 }

@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\SweggerViewsController;
 use Illuminate\Support\Facades\Route;
+use SingleSoftware\SinglesSwagger\Http\Controllers\SweggerViewsController;
 
 Route::get('/', [SweggerViewsController::class, 'swaggerRouetesView'])->name('view.swagger.routes');
 
