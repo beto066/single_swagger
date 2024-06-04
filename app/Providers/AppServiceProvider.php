@@ -34,9 +34,13 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->loadMigrationsFrom(self::ROOT_PATH . 'database/migrations');
 
-        $this->loadMigrationsFrom(self::ROOT_PATH . 'database/migrations/setting');
+        $this->loadMigrationsFrom(self::ROOT_PATH . 'database/migrations/settings');
 
         $this->loadViewsFrom(self::ROOT_PATH . 'resources/views', 'swagger');
+
+        $this->publishes([
+            self::ROOT_PATH . 'database/migrations/settings/0001_01_01_000003_create_settings_table.php' => database_path('migrations/settings/0001_01_01_000003_create_settings_table.php')
+        ]);
 
         $this->publishes([
             self::ROOT_PATH . 'config/single-swagger.php' => config_path('single-swagger.php')
