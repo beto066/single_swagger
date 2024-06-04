@@ -37,7 +37,7 @@
         // Function to fetch JSON file names from the server
         async function fetchJsonFiles() {
             try {
-                const response = await fetch('/api/swagger-routes');
+                const response = await fetch('/api/api-doc/swagger-routes');
                 const files = await response.json();
 
                 const fileListElement = document.getElementById('file-list');

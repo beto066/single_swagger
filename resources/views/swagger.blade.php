@@ -31,7 +31,7 @@
     window.onload = function() {
         const urlParams = new URLSearchParams(window.location.search);
         const routeFile = urlParams.get('route');
-        const jsonFileUrl = `/api/swagger-json/{{ $routeName }}`;
+        const jsonFileUrl = `/api/api-doc/swagger-json/{{ $routeName }}`;
 
         const ui = SwaggerUIBundle({
             url: jsonFileUrl,
