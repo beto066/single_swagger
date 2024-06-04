@@ -4,6 +4,7 @@ namespace SingleSoftware\SinglesSwagger\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use SingleSoftware\SinglesSwagger\Console\Commands\GenerateSwaggerJson;
+use SingleSoftware\SinglesSwagger\Http\Middleware\SwaggerPrefixMiddleware;
 use SingleSoftware\SinglesSwagger\Services\GenerateSwaggerService;
 use SingleSoftware\SinglesSwagger\Services\GenerateSwaggerServiceInterface;
 
@@ -23,6 +24,8 @@ class AppServiceProvider extends ServiceProvider
         $this->loadViewsFrom(self::ROOT_PATH . 'resources/views', 'swagger');
 
         $this->mergeConfigFrom(self::ROOT_PATH . 'config/single-swagger.php', 'single-swagger');
+
+        $this->app->alias('swagger-prefix', SwaggerPrefixMiddleware::class);
 
         $this->app->bind(GenerateSwaggerServiceInterface::class, GenerateSwaggerService::class);
 

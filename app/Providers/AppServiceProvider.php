@@ -34,6 +34,8 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->loadMigrationsFrom(self::ROOT_PATH . 'database/migrations');
 
+        $this->
+
         $this->loadViewsFrom(self::ROOT_PATH . 'resources/views', 'swagger');
 
         $this->publishes([
