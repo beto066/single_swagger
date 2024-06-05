@@ -25,8 +25,6 @@ class AppServiceProvider extends ServiceProvider
 
         $this->mergeConfigFrom(self::ROOT_PATH . 'config/single-swagger.php', 'single-swagger');
 
-        $this->app->alias('swagger-prefix', SwaggerPrefixMiddleware::class);
-
         $this->app->bind(GenerateSwaggerServiceInterface::class, GenerateSwaggerService::class);
 
         $this->app->singleton(GenerateSwaggerServiceInterface::class, GenerateSwaggerService::class);

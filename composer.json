@@ -14,12 +14,12 @@
         }
     ],
     "require": {
-        "php": "^8.2",
-        "spatie/laravel-settings": "^3.3",
-        "laravel/framework": "^11.9",
-        "illuminate/container": "^11.9",
-        "illuminate/events": "^11.9",
-        "illuminate/routing": "^11.9"
+        "php": "*",
+        "spatie/laravel-settings": "*",
+        "laravel/framework": "*",
+        "illuminate/container": "*",
+        "illuminate/events": "*",
+        "illuminate/routing": "*"
     },
     "require-dev": {
         "laravel/sail": "^1.29",
