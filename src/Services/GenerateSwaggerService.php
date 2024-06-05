@@ -109,6 +109,15 @@ class GenerateSwaggerService implements GenerateSwaggerServiceInterface
             if (in_array('GET', $methods) || in_array('POST', $methods) || in_array('PUT', $methods) || in_array('DELETE', $methods)) {
                 $pathItem = [];
 
+                if (!$prefix) {
+                    foreach ($middlewares as $middleware) {
+                        if (preg_match('/^swagger-prefix:(.*)/', $middleware, $matches)) {
+                            $prefix = $matches[1];
+                            break;
+                        }
+                    }
+                }
+
                 foreach ($methods as $method) {
                     if (in_array($method, ['GET', 'POST', 'PUT', 'DELETE'])) {
                         $pathItem[strtolower($method)] = $this->formatePathItem($method, $middlewares, $prefix, $name, $action, $uri, $tag);
@@ -210,15 +219,6 @@ class GenerateSwaggerService implements GenerateSwaggerServiceInterface
                     ],
                 ],
             ];
-        }
-
-        if (!$prefix) {
-            foreach ($middlewares as $middleware) {
-                if (preg_match('/^swagger-prefix:(.*)/', $middleware, $matches)) {
-                    $prefix = $matches[1];
-                    break;
-                }
-            }
         }
 
         return [
