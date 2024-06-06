@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
+use SingleSoftware\SinglesSwagger\Http\Middleware\EnvironmentMiddleware;
 use SingleSoftware\SinglesSwagger\Http\Middleware\SwaggerPrefixMiddleware;
 
 return Application::configure(basePath: dirname(__DIR__))
@@ -14,7 +15,8 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias([
-            'swagger-prefix' => SwaggerPrefixMiddleware::class
+            'swagger-prefix' => SwaggerPrefixMiddleware::class,
+            'env.check' => EnvironmentMiddleware::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

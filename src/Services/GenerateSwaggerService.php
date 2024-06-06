@@ -197,7 +197,7 @@ class GenerateSwaggerService implements GenerateSwaggerServiceInterface
         string $method,
         array $middlewares,
         ?string $prefix,
-        string $name,
+        string $name = '',
         array $action,
         string $uri,
         string $tag
