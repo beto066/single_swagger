@@ -120,7 +120,7 @@ class GenerateSwaggerService implements GenerateSwaggerServiceInterface
 
                 foreach ($methods as $method) {
                     if (in_array($method, ['GET', 'POST', 'PUT', 'DELETE'])) {
-                        $pathItem[strtolower($method)] = $this->formatePathItem($method, $middlewares, $prefix, $name, $action, $uri, $tag);
+                        $pathItem[strtolower($method)] = $this->formatePathItem($method, $middlewares, $prefix, $name ?? '', $action, $uri, $tag);
                     }
                 }
 
