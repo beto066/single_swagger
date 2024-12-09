@@ -1,66 +1,112 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# SingleSoftware Swagger Generator
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+**Uma biblioteca para gerar documentação Swagger automaticamente para APIs Laravel, com base em FormRequests.**
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Instalação
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Instale a biblioteca usando o Composer:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+```bash
+composer require single_software/singles_swagger
+```
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Funcionalidades
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### Rotas de Documentação
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Após instalar a biblioteca, você poderá acessar a documentação Swagger gerada automaticamente através das seguintes rotas:
 
-## Laravel Sponsors
+- `/api-doc/{routeName}`  
+  Exemplo: `/api-doc/api.php`
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+  Gera a documentação Swagger para um arquivo de rotas específico.
 
-### Premium Partners
+- `/api-doc`  
+  Lista todas as rotas disponíveis para documentação.  
+  Exemplo de saída:
+  ```json
+  [
+      "api.php",
+      "web.php",
+      "api.json"
+  ]
+  ```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+- `/api-doc/api.json`  
+  Disponibiliza a documentação Swagger no formato JSON para integração com ferramentas externas.
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Comando Artisan
 
-## Code of Conduct
+A biblioteca fornece um comando Artisan para gerar a documentação Swagger manualmente:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+php artisan generate:swagger {routeFile} {--prefix=} {--tenants=}
+```
 
-## Security Vulnerabilities
+#### Parâmetros do Comando:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- **`{routeFile}`**  
+  O nome do arquivo de rotas para o qual a documentação será gerada.  
+  Exemplo: `api.php`
 
-## License
+- **`{--prefix=}`**  
+  Um prefixo para as rotas que deve ser considerado na documentação.  
+  Exemplo: `--prefix=api/v1`
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- **`{--tenants=}`**  
+  Indica que as rotas pertencem a um sistema com múltiplos tenants (multitenancy).  
+  Exemplo: `--tenants=true`
+
+---
+
+## Exemplos de Uso
+
+### 1. Gerar Documentação para um Arquivo de Rotas Específico
+Acesse a rota:
+```
+http://sua-aplicacao.test/api-doc/api.php
+```
+
+Ou execute o comando Artisan:
+```bash
+php artisan generate:swagger api.php
+```
+
+### 2. Listar Todas as Rotas Disponíveis
+Acesse:
+```
+http://sua-aplicacao.test/api-doc
+```
+
+### 3. Exportar Documentação como JSON
+Acesse:
+```
+http://sua-aplicacao.test/api-doc/api.json
+```
+
+---
+
+## Benefícios
+
+- **Automação Completa**: Geração automática de documentação com base em validações definidas em `FormRequest`.
+- **Flexibilidade**: Suporte a sistemas com múltiplos tenants e rotas com prefixos personalizados.
+- **Integração Simples**: Use o formato JSON para integrar a documentação com ferramentas externas, como Swagger UI.
+
+---
+
+## Requisitos
+
+- Laravel 8 ou superior.
+- PHP 7.4 ou superior.
+
+---
+
+## Sobre
+
+Esta biblioteca foi desenvolvida pela **SingleSoftware** para facilitar a criação de documentações Swagger em projetos Laravel.
